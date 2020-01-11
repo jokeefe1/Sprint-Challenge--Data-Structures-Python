@@ -44,4 +44,4 @@ print (f"runtime: {end_time - start_time} seconds")
 # What's the best time you can accomplish with no restrictions on techniques or data
 # structures?
 
-# O(n log n)
+# O(n) for a combined list or set.
