@@ -20,12 +20,20 @@ duplicates = []
 #             duplicates.append(name_1)
 
 # runtime ~ 0.2s
-binary_search = BinarySearchTree(names_1[0])
-for i in range(1, len(names_1)):
-    binary_search.insert(names_1[i])
-for i in range(1, len(names_2)):
-    if binary_search.contains(names_2[i]):
-        duplicates.append(names_2[i])
+# binary_search = BinarySearchTree(names_1[0])
+# for i in range(1, len(names_1)):
+#     binary_search.insert(names_1[i])
+# for i in range(1, len(names_2)):
+#     if binary_search.contains(names_2[i]):
+#         duplicates.append(names_2[i])
+
+# runtime ~ 0.02s
+cache = {}
+for names_1 in names_1:
+    cache[names_1] = names_1
+for names_2 in names_2:
+    if names_2 in cache:
+        duplicates.append(names_2)
         
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
